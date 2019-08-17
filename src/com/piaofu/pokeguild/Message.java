@@ -1,0 +1,134 @@
+package com.piaofu.pokeguild;
+
+import com.piaofu.pokeguild.main.PokeGuild;
+import org.bukkit.configuration.file.YamlConfiguration;
+
+import java.io.File;
+
+public enum Message {
+    GUILDFULL("公会已满员"),
+    GUILDAGREE("已同意加入公会"),
+    NONE_PERMISSION("你未含有权限"),
+    NONE_VAULT("初始化Vault支持失败,请检测是否已经安装Vault插件和权限插件、经济插件"),
+    EVEN_RELOAD("已重载"),
+    SPRING_INFO("§3§l[PokeGuild]§4在休闲区时!如需离开,可输入§d/spring leave§4离开"),
+    EXP_INFO("§3[PokeGuild]§e队伍里所有宝可梦获得了§b{0}§e经验值，§b{1}§e金钱"),
+    EXP_GUILD("§4[休闲区]因公会额外获得金钱{0},经验{1}"),
+    SPRING_PLAYER_JOIN("§3[休闲区]来了老弟"),
+    SPRING_PLAYER_LEAVE("§3[休闲区]欢迎下次再来!'"),
+    SPRING_NOARGS_INFO("要想进入温泉,输入/spring go 进入吧！"),
+    ARGS_INVAILD("参数不正确"),
+    CHANGEBROAD_SOLONG("长度过长，更改失败"),
+    CREATE_ARGSINVAILD("长度不在允许范围内"),
+    CREATE_SUCCESS("创建成功"),
+    HASGUILD("你已存在公会"),
+    HASGUILDSAMENAME("已存在同名公会"),
+    NONE_GUILD("还未加入任何公会"),
+    INVAILDGUILD("不存在该公会"),
+    NONE_MONEY("金钱不足"),
+    INVAILD_PLAYER("玩家不在线或不存在"),
+    INVAILDGUILDORNOTADMIN("你没有加入公会或你不是一个公会的管理员"),
+    CHATROOMTITLE("§3§l{0}§e§l聊天室"),
+    CHATROOMFORMAT("{0}{1} §d说 §f§l{2}"),
+    CHANGEBROADCAST("修改公告信息"),
+    CHANGEINFO("修改简介信息"),
+    APPLY_LIST("申请列表"),
+    KILL_GUILD("解散公会"),
+    EXIT_GUILD("退出公会"),
+    SET_TELEPORT("设置传送"),
+    POINT_LIST("据点列表"),
+    ONLINE("在线"),
+    OFFLINE("不在线"),
+    BAN("封禁"),
+    UNBAN("正常"),
+    KILL_PERSON("踢出成员"),
+    SET("设置"),
+    AGREE("同意"),
+    REJECT("拒绝"),
+    SUCCESS_KICK_MESSAGE("成功踢出对方"),
+    SETDEFAULT("设置普通成员"),
+    STORGE("仓库"),
+    OWNER("§4§l[会长]"),
+    MEMBER("[会员]"),
+    SENTINAL("§2[前哨]"),
+    SUBOWNER("§3[副会长]"),
+    AMBASSADOR("§2[外交官]"),
+    INTERVIEWER("§2[面试官]"),
+    MANAGER("§3[管理员]"),
+    EMPTY("空"),
+    KILL_GUILD_INFO("[Poke-RPGGuild]公会已被解散"),
+    GUILD_LEVEL_UP("{0}已升级到{1}级"),
+    PLAYER_ADD_GUILD_CON("{0}为公会增加{1}战力，同时等值转化为自身贡献值"),
+    ADD_GUILD_CON("公会增加{0}战力"),
+    CANNOT_ADD_CON("捐赠的金钱不足以能让其提升1贡献，已取消，请至少保证捐赠数目: {0}"),
+    ADD_MONEY("{0}为公会增加{1}金钱，同时获得贡献值{2}"),
+    PLAYER_EXIT_GUILD_INFO("玩家{0}退出公会"),
+    GUILD_WELCOME_MESSAGE("[PokeGuild]欢迎新玩家{0}加入公会！"),
+    CANNOT_KICK_MESSAGE("你不是管理人员"),
+    CANNOT_KICK_MORE_MESSAGE("不能越级踢出玩家"),
+    EDIT_SUCCESS("更改成功"),
+    POINT_BATTLE_START("§4§l[PokeGuild]据点战开始了！"),
+    POINT_BATTLE_END("§4§l[PokeGuild]据点战结束了！"),
+    POINT_NOT_START("[PokeGuild]现在不是据点战的时间段"),
+    POINT_IS_FULL("[PokeGuild]公会据点已达到上限，暂时无法攻击其他核心"),
+    CANNOT_ATTACK_MEMBER("§b§l[PokeGuild] §4你不能攻击自己的会友"),
+    CANNOT_ATTACK_SELF_GUILD("[PokeGuild]你不能攻击自己的公会据点"),
+    CANNOT_ATTACK_PROTECT("[PokeGuild]本据点正在受到保护!"),
+    ATTACK_INFO("[PokeGuild]你将{0}攻击了{1}点血量，剩余血量{2}/{3}"),
+    ATTACK_FINISH_INFO("[PokeGuild]{0}已被{1}拔除"),
+    PROTECT("保护中"),
+    DEPROTECT("未被保护"),
+    POINT_DAMAGE("伤害量("),
+    THE_POINT_IS_YOUR_MAX_DAMAGE("【归属】"),
+    POINT_OWNER_GUILD("占领公会"),
+    POINT_INFO_POINT("据点"),
+    POINT_MAKE_MONEY("每分钟产出  金币*"),
+    BATTLING("§4§l据点战开启"),
+    DEBATTLING("§3§l和平状态"),
+    IS_NOT_A_POINT("不是一个据点方块或不是你所属公会的据点方块"),
+    HEALTH_MESSAGE("已成功治疗据点{0}血量{1}， 目前据点剩余血量:{2}"),
+    IS_NOT_YOUR_POINT("不是一个据点方块或不是你所属公会的据点方块"),
+    FALL_USE_PROTECT("失败: 据点已存在保护罩"),
+    SUCCESS_USE_PROTECT("成功为据点加上{0}秒保护罩"),
+    NOT_IN_POINT("对方不在一个据点内"),
+    SUCCESS_KILL_PALYER("成功击杀对方"),
+    SUCCESS_KILL_PALYER_INFO("你已被玩家{0}使用驱赶石击杀"),
+    
+    ;
+    private String text;
+
+    Message(String s) {
+        this.text = s;
+    }
+
+    public static String format(String msg, String... args) {
+        if (args == null) {
+            return msg.replace("&", "§");
+        }
+        for (int i = 0; i < args.length; ++i) {
+            msg = msg.replace("{" + i + "}", (args[i] == null) ? "null" : args[i]);
+        }
+        return msg.replace("&", "§");
+    }
+
+    public static String getMsg(Message message, String... args) {
+        String t = lang.getString(message.name());
+        if(t == null || t.length() < 1) {
+            wirteDefault(message);
+            t = message.text;
+        }
+        return format(t, args);
+
+    }
+    private static void wirteDefault(Message message) {
+        lang.set(message.name(), message.text);
+    }
+    public static void loadLangData() {
+        File file = new File(PokeGuild.plugin.getDataFolder(),"lang.yml");
+        if(!file.exists()) {
+            PokeGuild.plugin.saveResource("lang.yml", false);
+        }
+        lang = YamlConfiguration.loadConfiguration(file);
+    }
+    private static YamlConfiguration lang;
+}

@@ -1,0 +1,40 @@
+#必须按格式A_B_C填写即星期几_多少点开始_多少点结束(24小时制)
+#重载生效
+
+StartTime:
+  - '1_20_21'
+  - '3_20_21'
+  - '5_20_21'
+  - '7_20_21'
+#推荐只划分三级
+PointsSetting:
+  lv1:
+    name: 小型据点
+    health: 1000
+    money: 10
+  lv2:
+    name: 中型据点
+    health: 2000
+    money: 20
+  lv3:
+    name: 大型据点
+    health: 3000
+    money: 30
+#据点配置
+points:
+  a1:
+    name: '碧海核心'
+    world: 'world'
+    x: 892
+    y: 67
+    z: -163
+    guild: ''
+    level: 2
+  a2:
+    name: '碧海核心'
+    world: 'world'
+    x: 892
+    y: 67
+    z: -163
+    guild: ''
+    level: 2

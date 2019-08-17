@@ -1,0 +1,137 @@
+#本服务器是否是CatServer的神奇宝贝服务器, 如果是将会开启额外的特性
+IsPokemonServer: false
+#是否开启机器人
+StartRobot: false
+Gui:
+  #成员列表
+  #左侧按键颜色，填颜色代码，带§符号
+  memberGui:
+    GuiButtonColorOnline: '§2'
+    GuiButtonColorOffline: '§4'
+    Info:
+    - ""
+    - "        §b❀ §f玩家    §3[玩家名]                             "
+    - ""
+    - "        §b❀ §f状态    §3[在线状态]                           "
+    - ""
+    - "        §b❀ §f官职    §3[职位]                               "
+    - ""
+    - "        §b❀ §f贡献    §3[贡献]                               "
+    - ""
+    - "        §b❀ §f封禁    §3[封禁状态]                           "
+    - ""
+#创建公会需要花费游戏币:
+NeedMoney: 10000
+moneyRate: 0.0001
+KEY: 25
+#公会等级表
+#最大等级
+MAX_LEVEL: 5
+#############
+#原版贡献配置区
+KillMobByName:
+  #如下配置意思为击杀一个魔尊则给与10贡献
+  a1:
+    name: 魔尊
+    addc: 10
+  a2:
+    name: 魔种之首
+    addc: 5
+#############
+#神奇宝贝配置区:
+#击败boss获得多少贡献
+KBOSS: 5
+#击败普通精灵获得多少贡献
+KNORMAL: 1
+#############
+PointPVP: true
+LEVELUP:
+  lv1:
+    #升级所需的金钱以及荣誉,荣誉不会减少
+    needMoney: 10000
+    needBattlePower: 2000
+    #休闲区附加经验值以及金钱
+    addExp: 2
+    addMoney: 5
+    maxPerson: 5
+    limitPoint: 3
+  lv2:
+    needMoney: 50000
+    needBattlePower: 8000
+    addExp: 10
+    addMoney: 10
+    maxPerson: 10
+    limitPoint: 3
+  lv3:
+    needMoney: 100000
+    needBattlePower: 12000
+    addExp: 20
+    addMoney: 20
+    maxPerson: 15
+    limitPoint: 3
+  lv4:
+    needMoney: 200000
+    needBattlePower: 30000
+    addExp: 40
+    addMoney: 40
+    maxPerson: 20
+    limitPoint: 3
+  lv5:
+    needMoney: 400000
+    needBattlePower: 50000
+    addExp: 50
+    addMoney: 50
+    maxPerson: 30
+    limitPoint: 3
+#休闲区入口  Hot Spring Entrance
+PoorDoor:
+  world: world
+  x: 231
+  y: 86
+  z: -323
+#经验配置 (从上往下识别,如果第一次碰到具有权限的项，就按照该项目来增加经验，当前玩家队伍所有神奇宝贝都会增加经验)
+ExpConfig:
+  a1:
+    permission: 'spring.vip1'
+    #每1分钟
+    money: 10
+    exp: 10
+  a2:
+    permission: 'spring.vip2'
+    #每1分钟
+    money: 20
+    exp: 20
+  a3:
+    permission: 'spring.vip3'
+    #每1分钟
+    money: 30
+    exp: 30
+ViewConfig:
+  Point:
+    Health:
+      #进入据点后是否显示血量
+      Switch: true
+      X: 20
+      Y: 400
+    Name:
+      #进入据点后是否持续显示据点名和占领公会名
+      Switch: true
+      X: 20
+      Y: 350
+      Lore:
+      - '§3§l占领公会: [GUILD]'
+      - '§2§l据点名: [POINTNAME]'
+      - '§b§l每分钟产生金币: [MONEY]'
+      - '§3§l据点等级: [POINTLEVEL]'
+      - '§e§l保护状态: [PROTECT]'
+    AttackMap:
+      #公会战期间是否开启该据点的攻击计分板
+      Switch: true
+      X: 20
+      Y: 50
+#据点特效名: 不懂别乱动
+#特效开关
+PointSwitch: true
+PointEffect: 'MAGIC_CRIT'
+#占领据点的特效
+PointKickEffect: 'SNOW_SHOVEL'

@@ -1,0 +1,17 @@
+name: PokeGuild
+main: com.piaofu.pokeguild.main.PokeGuild
+author: piaofu
+version: 1.0.6
+depend:
+- Vault
+- VexView
+Softdepend:
+- Multiverse-Core
+commands:
+  pokeguild:
+    usage: /pokeguild
+    description: pokeguild
+  spring:
+    usage:
+    description: xiuxianqu
+
