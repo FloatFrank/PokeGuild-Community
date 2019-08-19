@@ -1,7 +1,7 @@
 name: PokeGuild
 main: com.piaofu.pokeguild.main.PokeGuild
 author: piaofu
-version: 1.0.6
+version: 1.0.9
 depend:
 - Vault
 - VexView
